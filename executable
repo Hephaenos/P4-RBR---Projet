@@ -1,7 +1,0 @@
-
-int main(){
-  int x = 0;
-  x+=1;
-  printf("%d", x);
-  je m'aplele florent et j'aime faire des choses un peu bizarre
-}

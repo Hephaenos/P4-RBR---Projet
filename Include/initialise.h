@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 #define L 6
 #define C 7
 
@@ -12,4 +13,7 @@ void initialiser_matrice(case_t mat[L][C]);
 void creer_joueur(joueur_t joueur,int bloquante);
 
 // Renvoi le nombre de piece bloquante pour tous les joueurs
-int choix_piece_bloquante(){
+int choix_piece_bloquante();
+
+void initialiser_joueur(int nb_joueur, joueur_t tab[]);
+
