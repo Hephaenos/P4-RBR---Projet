@@ -1,8 +1,8 @@
 # P4-RBR---Projet de L2 Informatique 2018/2019
 
-Bouthemy Thomas
-Renoult Florent
-Richer Lucien
+Bouthemy Thomas (Skyarx)
+Renoult Florent (Hephaenos)
+Richer Lucien (Vanity-Walls)
 
 Puisance 4 amélioré avec quelques subtilités
 
