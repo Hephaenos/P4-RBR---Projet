@@ -23,7 +23,7 @@ typedef struct case_s{
 // Choix de la couleur, du pseudo pour chaque joueur
 // Meme nombre de pièces bloquantes pour chaque joueur
 typedef struct joueur_s{
-  char pseudo[10];
+  char * pseudo;
   char couleur;
   int nb_bloq;
 }joueur_t;

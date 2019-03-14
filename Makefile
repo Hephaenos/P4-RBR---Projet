@@ -1,5 +1,5 @@
 P4 : P4.o afficher_matrice.o hauteur_piece.o initialise.o tour_joueur.o gagne.o
-	gcc P4.o afficher_matrice.o hauteur_piece.o initialise.o tour_joueur.o gagne.o -o P4
+	gcc  -g P4.o afficher_matrice.o hauteur_piece.o initialise.o tour_joueur.o gagne.o -o P4
 
 P4.o : SRC/P4.c
 	gcc -c SRC/P4.c

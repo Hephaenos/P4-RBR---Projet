@@ -14,19 +14,19 @@
 int hauteur_piece(int j, case_t mat[L][C], int type_piece){
         int i=L-1;
         if(type_piece==BLOQUANTE){
-          while(mat[i][j].piece1!=NULL && mat[i][j].piece2!=NULL){
+          while(i>=0 && (mat[i][j].piece1->type!=0 || mat[i][j].piece2->type!=0)){
                 i--;
           }
           return i;
         }
         else if(type_piece==PLEINE){
-          while(mat[i][j].piece1->type!=BLOQUANTE && mat[i][j].piece1->type!=PLEINE){
+          while(i>=0 && (mat[i][j].piece1->type==BLOQUANTE || mat[i][j].piece1->type==PLEINE)){
                 i--;
           }
           return i;
         }
         else{
-          while(mat[i][j].piece1->type!=BLOQUANTE && mat[i][j].piece2->type!=CREUSE){
+          while(i>=0 && (mat[i][j].piece1->type==BLOQUANTE || mat[i][j].piece2->type==CREUSE)){
                 i--;
           }
           return i;
