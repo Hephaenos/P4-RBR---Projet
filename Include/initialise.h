@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 
-#define L 6
-#define C 7
+
 
 // Remplie toute la matrice a nulle
 void initialiser_matrice(case_t mat[L][C]);

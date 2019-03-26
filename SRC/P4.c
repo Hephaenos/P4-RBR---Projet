@@ -8,11 +8,7 @@
 #include"../Include/tour_joueur.h"
 
 
-#define L 6
-#define C 7
-#define BLOQUANTE 1
-#define PLEINE 2
-#define CREUSE 3
+
 
 
 int main(){ //initialisation des entier, cahine de caractÃ¨res et fichier

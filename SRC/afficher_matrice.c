@@ -3,8 +3,6 @@
 #include <string.h>
 #include"../Include/P4.h"
 
-#define L 6
-#define C 7
 
 // Fonction qui affiche une matrice
 void afficher_matrice(case_t mat[L][C]){
