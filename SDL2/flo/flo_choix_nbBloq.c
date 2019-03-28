@@ -7,13 +7,6 @@
 #include <string.h>
 #include <time.h>
 
-/**
- * \fn SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer)
- * \brief Transforme une image PNG en format texture pour pouvoir l'afficher dans la fenêtre SDL
- * \param s : chemin d'accès vers l'image PNG
- * \param renderer : le renderer de la fenêtre.
- * \return Pointeur sur SDL_Texture
- */
 SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer){
 
     SDL_RWops *rwop=SDL_RWFromFile(s, "rb");
@@ -67,16 +60,9 @@ SDL_Texture *tex_text(char* font,int size, char* s, SDL_Color color, SDL_Rendere
 
 
 
-int lancement_jeu(int i){
-    if(i==1){
-        printf("1 \n \n \n");
-    }
-    if(i==0){
-        printf("0 \n \n \n");
-    }
-    return 0;
+void lancement_jeu(int i){
+    printf("nombre recu i = %d \n \n", i);
 }
-
 
 int main(void){
     /* Initialisation simple */
@@ -95,7 +81,7 @@ int main(void){
     SDL_Window* pWindow = NULL;
     //Le pointeur vers la surface incluse dans la fenetre
     SDL_Renderer *renderer=NULL;
-    SDL_Rect txtDestRect, txtBvnRect, txtMenuRect[2], imgBtnRect, imgBGRect, txt_titre, nbjoueurRect[5];
+    SDL_Rect txtDestRect, txtBvnRect, txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbPieceBloRect[11];
 
 
     // Une variable de couleur noire
@@ -121,10 +107,21 @@ int main(void){
     }
 
     SDL_Texture *texte_tex = tex_text("ChowFun.ttf",80,"Puissance 4",couleurBlanc,renderer);
-    SDL_Texture *texteMenu_tex[2];
+    SDL_Texture *texteMenu_tex[2], *nbPieceBlotext[11];
     
-    texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Jouer",couleurNoire,renderer);
-    texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurNoire,renderer);
+    texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Choix de pièce(s) bloquante(s) : ",couleurNoire,renderer);
+    texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurBlanc,renderer);
+    nbPieceBlotext[0] = tex_text("ChowFun.ttf",40," 0 ",couleurNoire,renderer);
+    nbPieceBlotext[1] = tex_text("ChowFun.ttf",40," 1 ",couleurNoire,renderer);
+    nbPieceBlotext[2] = tex_text("ChowFun.ttf",40," 2 ",couleurNoire,renderer);
+    nbPieceBlotext[3] = tex_text("ChowFun.ttf",40," 3 ",couleurNoire,renderer);
+    nbPieceBlotext[4] = tex_text("ChowFun.ttf",40," 4 ",couleurNoire,renderer);
+    nbPieceBlotext[5] = tex_text("ChowFun.ttf",40," 5 ",couleurNoire,renderer);
+    nbPieceBlotext[6] = tex_text("ChowFun.ttf",40," 6 ",couleurNoire,renderer);
+    nbPieceBlotext[7] = tex_text("ChowFun.ttf",40," 7 ",couleurNoire,renderer);
+    nbPieceBlotext[8] = tex_text("ChowFun.ttf",40," 8 ",couleurNoire,renderer);
+    nbPieceBlotext[9] = tex_text("ChowFun.ttf",40," 9 ",couleurNoire,renderer);
+    nbPieceBlotext[10] = tex_text("ChowFun.ttf",40,"Val",couleurNoire,renderer);
     
     txtDestRect.x = 200;
     txtDestRect.y = 10;
@@ -136,10 +133,12 @@ int main(void){
 
     if( pWindow )
     {
-        int running = 1, i;
+        int running = 1, i, val = -1;
         while(running) {
             SDL_Event e;
             SDL_GetMouseState(&x,&y);
+            SDL_StartTextInput();
+
             while(SDL_PollEvent(&e)) {
                 switch(e.type) {
                     case SDL_QUIT: running = 0;break;
@@ -165,32 +164,59 @@ int main(void){
                         //SDL_RenderDrawLine(renderer,0,130,1080,130);
                         
                         //Positionnement du premier bouton
-                        imgBtnRect.x = 350;
-                        imgBtnRect.y = 200;
-                        txtMenuRect[0].x=378;
+                        imgBtnRect.x = 590;
+                        imgBtnRect.y = 430;
+                        txtMenuRect[0].x=258;
                         txtMenuRect[0].y=208;
-                        txtMenuRect[1].x=370;
-                        txtMenuRect[1].y=305;
+                        txtMenuRect[1].x=610;
+                        txtMenuRect[1].y=440;
                         SDL_QueryTexture(image_btn_tex, NULL, NULL, &(imgBtnRect.w), &(imgBtnRect.h));
-                        for(i=0;i<2;i++){
-                            if(x<460 && 350<x && y<imgBtnRect.y+55 && imgBtnRect.y<y){
+                        if(x<700 && 590<x && y<imgBtnRect.y+55 && imgBtnRect.y<y){
+                            if(e.type == SDL_MOUSEBUTTONDOWN){
+                                SDL_DestroyWindow(pWindow);
+                                lancement_jeu(0);
+                                return 0;
+                            }
+                        }
+                        nbPieceBloRect[0].x=180;
+                        nbPieceBloRect[0].y=260;
+                        SDL_QueryTexture(nbPieceBlotext[0], NULL, NULL, &(nbPieceBloRect[0].w), &(nbPieceBloRect[0].h));
+                        SDL_RenderCopy(renderer, nbPieceBlotext[0], NULL, &(nbPieceBloRect[0]));
+                        for(i=1;i<12;i++){
+                            if(x<(nbPieceBloRect[i-1].x + 40) && (nbPieceBloRect[i-1].x)<x && y<(nbPieceBloRect[i-1].y + 40) && nbPieceBloRect[i-1].y<y){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
-                                    SDL_DestroyWindow(pWindow);
-                                    lancement_jeu(i);
-                                    return 0;
+                                    if(val != -1 && (i-1)!= 10){
+                                        val = val * 10 + (i-1);
+                                    }
+                                    else if(val == -1 && (i-1)!= 10) {
+                                        val = (i-1);
+                                    }
+                                    else if((i-1) == 10){
+                                        SDL_DestroyWindow(pWindow);
+                                        lancement_jeu(val);
+                                    }
                                 }
                             }
-                            txt_titre.x = 170;
-                            txt_titre.y = 10;
-                            SDL_QueryTexture(texte_tex, NULL, NULL, &(txt_titre.w), &(txt_titre.h));
-                            SDL_RenderCopy(renderer, texte_tex, NULL, &(txt_titre));
-
-                            SDL_RenderCopy(renderer, image_btn_tex, NULL, &imgBtnRect);
-
-                            SDL_QueryTexture(texteMenu_tex[i], NULL, NULL, &(txtMenuRect[i].w), &(txtMenuRect[i].h));
-                            SDL_RenderCopy(renderer, texteMenu_tex[i], NULL, &(txtMenuRect[i]));
-                            imgBtnRect.y += 90;
+                            if(i>5){
+                                nbPieceBloRect[i].y= nbPieceBloRect[0].y+100;
+                            }
+                            else{
+                                nbPieceBloRect[i].y= nbPieceBloRect[0].y;
+                            }
+                            nbPieceBloRect[i].x = nbPieceBloRect[0].x + (i%6)*70;
+                            SDL_QueryTexture(nbPieceBlotext[i], NULL, NULL, &(nbPieceBloRect[i].w), &(nbPieceBloRect[i].h));
+                            SDL_RenderCopy(renderer, nbPieceBlotext[i], NULL, &(nbPieceBloRect[i]));
                         }
+                        txt_titre.x = 170;
+                        txt_titre.y = 10;
+                        SDL_QueryTexture(texte_tex, NULL, NULL, &(txt_titre.w), &(txt_titre.h));
+                        SDL_RenderCopy(renderer, texte_tex, NULL, &(txt_titre));
+
+                        SDL_RenderCopy(renderer, image_btn_tex, NULL, &imgBtnRect);
+                        SDL_QueryTexture(texteMenu_tex[0], NULL, NULL, &(txtMenuRect[0].w), &(txtMenuRect[0].h));
+                        SDL_RenderCopy(renderer, texteMenu_tex[0], NULL, &(txtMenuRect[0]));
+                        SDL_QueryTexture(texteMenu_tex[1], NULL, NULL, &(txtMenuRect[1].w), &(txtMenuRect[1].h));
+                        SDL_RenderCopy(renderer, texteMenu_tex[1], NULL, &(txtMenuRect[1]));
                         /*
                         imgBtnRect.x = 1000;
                         imgBtnRect.y = 570;
@@ -205,18 +231,16 @@ int main(void){
                         SDL_RenderCopy(renderer, temp_music, NULL, &imgBtnRect);*/
 
                         /* On fait le rendu ! */
-                        SDL_RenderPresent(renderer);
-                        break;
+                    SDL_RenderPresent(renderer);
+                    break;
                 }
             }
         }
     } else {
         fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
     }
-    
     //Destruction de la fenetre
     if(pWindow != NULL) SDL_DestroyWindow(pWindow);
     return 0;
 
 }
-
