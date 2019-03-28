@@ -150,8 +150,6 @@
 #define HAVE_COPYSIGNF 1
 #define HAVE_COS 1
 #define HAVE_COSF 1
-#define HAVE_EXP 1
-#define HAVE_EXPF 1
 #define HAVE_FABS 1
 #define HAVE_FABSF 1
 #define HAVE_FLOOR 1
@@ -210,9 +208,6 @@
 /* #undef HAVE_DSOUND_H */
 /* #undef HAVE_DXGI_H */
 /* #undef HAVE_XINPUT_H */
-/* #undef HAVE_ENDPOINTVOLUME_H */
-/* #undef HAVE_MMDEVICEAPI_H */
-/* #undef HAVE_AUDIOCLIENT_H */
 /* #undef HAVE_XINPUT_GAMEPAD_EX */
 /* #undef HAVE_XINPUT_STATE_EX */
 
@@ -227,7 +222,6 @@
 /* #undef SDL_FILE_DISABLED */
 /* #undef SDL_JOYSTICK_DISABLED */
 /* #undef SDL_HAPTIC_DISABLED */
-/* #undef SDL_SENSOR_DISABLED */
 /* #undef SDL_LOADSO_DISABLED */
 /* #undef SDL_RENDER_DISABLED */
 /* #undef SDL_THREADS_DISABLED */
@@ -284,7 +278,6 @@
 /* #undef SDL_JOYSTICK_WINMM */
 /* #undef SDL_JOYSTICK_USBHID */
 /* #undef SDL_JOYSTICK_USBHID_MACHINE_JOYSTICK_H */
-/* #undef SDL_JOYSTICK_HIDAPI */
 /* #undef SDL_JOYSTICK_EMSCRIPTEN */
 /* #undef SDL_HAPTIC_DUMMY */
 /* #undef SDL_HAPTIC_ANDROID */
@@ -292,10 +285,6 @@
 /* #undef SDL_HAPTIC_IOKIT */
 /* #undef SDL_HAPTIC_DINPUT */
 /* #undef SDL_HAPTIC_XINPUT */
-
-/* Enable various sensor drivers */
-/* #undef SDL_SENSOR_ANDROID */
-#define SDL_SENSOR_DUMMY 1
 
 /* Enable various shared object loading systems */
 #define SDL_LOADSO_DLOPEN 1
@@ -365,20 +354,20 @@
 
 /* #undef SDL_VIDEO_RENDER_D3D */
 /* #undef SDL_VIDEO_RENDER_D3D11 */
-#define SDL_VIDEO_RENDER_OGL 1
+/* #undef SDL_VIDEO_RENDER_OGL */
 /* #undef SDL_VIDEO_RENDER_OGL_ES */
 #define SDL_VIDEO_RENDER_OGL_ES2 1
 /* #undef SDL_VIDEO_RENDER_DIRECTFB */
 /* #undef SDL_VIDEO_RENDER_METAL */
 
 /* Enable OpenGL support */
-#define SDL_VIDEO_OPENGL 1
+/* #undef SDL_VIDEO_OPENGL */
 /* #undef SDL_VIDEO_OPENGL_ES */
 #define SDL_VIDEO_OPENGL_ES2 1
 /* #undef SDL_VIDEO_OPENGL_BGL */
 /* #undef SDL_VIDEO_OPENGL_CGL */
 #define SDL_VIDEO_OPENGL_EGL 1
-#define SDL_VIDEO_OPENGL_GLX 1
+/* #undef SDL_VIDEO_OPENGL_GLX */
 /* #undef SDL_VIDEO_OPENGL_WGL */
 /* #undef SDL_VIDEO_OPENGL_OSMESA */
 /* #undef SDL_VIDEO_OPENGL_OSMESA_DYNAMIC */
