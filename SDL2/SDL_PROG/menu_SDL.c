@@ -8,7 +8,7 @@
 #include <time.h>
 
 /**
- * \fn SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer)
+ * fn SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer)
  * \brief Transforme une image PNG en format texture pour pouvoir l'afficher dans la fenêtre SDL
  * \param s : chemin d'accès vers l'image PNG
  * \param renderer : le renderer de la fenêtre.
@@ -21,7 +21,7 @@ SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer){
 	if(!image) {
 	     printf("IMG_LoadPNG_RW: %s\n", IMG_GetError());
 	}
-	SDL_Texture *image_btn_tex = SDL_CreateTextureFromSurface(renderer, image); 
+	SDL_Texture *image_btn_tex = SDL_CreateTextureFromSurface(renderer, image);
 	if(!image_btn_tex){
 		fprintf(stderr, "Erreur à la création du rendu de l'image : %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
@@ -83,7 +83,7 @@ int main(void){
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         return -1;
-    } 
+    }
 
 	/* Initialisation TTF */
 	if(TTF_Init() == -1) {
@@ -108,7 +108,7 @@ int main(void){
                                800,
                                571,
                                SDL_WINDOW_SHOWN);
-    
+
     if(!pWindow){
         fprintf(stderr, "Erreur à la création de la fenetre : %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
@@ -122,10 +122,10 @@ int main(void){
 
     SDL_Texture *texte_tex = tex_text("ChowFun.ttf",80,"Puissance 4",couleurBlanc,renderer);
     SDL_Texture *texteMenu_tex[2];
-    
+
     texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Jouer",couleurNoire,renderer);
     texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurNoire,renderer);
-    
+
     txtDestRect.x = 200;
     txtDestRect.y = 10;
     SDL_QueryTexture(texte_tex, NULL, NULL, &(txtDestRect.w), &(txtDestRect.h));
@@ -144,26 +144,25 @@ int main(void){
                 switch(e.type) {
                     case SDL_QUIT: running = 0;break;
                     case SDL_MOUSEBUTTONDOWN:
-                        
                     case SDL_WINDOWEVENT:
                         /* Le fond de la fenêtre sera blanc */
                         //SDL_SetRenderDrawColor(renderer, 24, 124, 58, 255);
                         SDL_RenderClear(renderer);
-                        
+
                         //BACKGROUND
                         imgBGRect.x = 0;
                         imgBGRect.y = 0;
-                        
+
                         SDL_QueryTexture(image_BG_tex, NULL, NULL, &(imgBGRect.w), &(imgBGRect.h));
 
                         SDL_RenderCopy(renderer, image_BG_tex, NULL, &imgBGRect);
-                        
+
                         /* Ajout du texte en noir */
                         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-                        
-                        
+
+
                         //SDL_RenderDrawLine(renderer,0,130,1080,130);
-                        
+
                         //Positionnement du premier bouton
                         imgBtnRect.x = 350;
                         imgBtnRect.y = 200;
@@ -213,10 +212,9 @@ int main(void){
     } else {
         fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
     }
-    
+
     //Destruction de la fenetre
     if(pWindow != NULL) SDL_DestroyWindow(pWindow);
     return 0;
 
 }
-
