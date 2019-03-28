@@ -1,6 +1,6 @@
 #!/bin/sh
 
-prefix=/info/etu/l2info/s174525/SDL2
+prefix=/info/etu/l2info/s175418/SDL2
 exec_prefix=${prefix}
 exec_prefix_set=no
 libdir=${exec_prefix}/lib
@@ -39,17 +39,17 @@ while test $# -gt 0; do
       echo $exec_prefix
       ;;
     --version)
-      echo 2.0.9
+      echo 2.0.8
       ;;
     --cflags)
       echo -I${prefix}/include/SDL2   -D_REENTRANT
       ;;
     --libs)
-      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -Wl,--enable-new-dtags -lSDL2
+      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -Wl,--enable-new-dtags -lSDL2 
       ;;
     --static-libs)
 #    --libs|--static-libs)
-      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -Wl,--enable-new-dtags -lSDL2  -Wl,--no-undefined -lm -ldl -lpthread -lrt
+      echo -L${exec_prefix}/lib -Wl,-rpath,${libdir} -Wl,--enable-new-dtags -lSDL2   -Wl,--no-undefined -lm -ldl -lpthread -lrt
       ;;
     *)
       echo "${usage}" 1>&2
