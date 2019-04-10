@@ -3,7 +3,6 @@
 
 void lancement_jeu3(int i){
     printf("nombre recu i = %d \n \n", i);
-    
 }
 
 int choix_nbBloq(void){
@@ -136,6 +135,7 @@ int choix_nbBloq(void){
                                     else if((i-1) == 10){
                                         SDL_DestroyWindow(pWindow);
                                         lancement_jeu3(val);
+                                        return val;
                                     }
                                 }
                             }

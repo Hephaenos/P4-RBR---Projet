@@ -1,11 +1,8 @@
 #include "SDL_jeu.h"
 
 
-void flo_suivant(int nb_joueur){
-    if(nb_joueur>2 && nb_joueur<7){
-        printf("oui chamion");
-    }
-    return;
+void flo_suivant(char * pse){
+    printf("%s \n\n", pse);
 }
 
 
@@ -58,12 +55,12 @@ int flo_test_pseudo(int reste_joueur, joueur_t tab[], int nb_bloquante, int plac
     
     texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Choix du Pseudo de joueur : ",couleurNoire,renderer);
     texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurBlanc,renderer);
-    nbjoueurtext[0] = tex_text("ChowFun.ttf",40,pseudo[0],couleurNoire,renderer);
-    nbjoueurtext[1] = tex_text("ChowFun.ttf",40,pseudo[1],couleurNoire,renderer);
-    nbjoueurtext[2] = tex_text("ChowFun.ttf",40,pseudo[2],couleurNoire,renderer);
-    nbjoueurtext[3] = tex_text("ChowFun.ttf",40,pseudo[3],couleurNoire,renderer);
-    nbjoueurtext[4] = tex_text("ChowFun.ttf",40,pseudo[4],couleurNoire,renderer);
-    nbjoueurtext[5] = tex_text("ChowFun.ttf",40,pseudo[5],couleurNoire,renderer);
+    nbjoueurtext[0] = tex_text("ChowFun.ttf",30,pseudo[0],couleurNoire,renderer);
+    nbjoueurtext[1] = tex_text("ChowFun.ttf",30,pseudo[1],couleurNoire,renderer);
+    nbjoueurtext[2] = tex_text("ChowFun.ttf",30,pseudo[2],couleurNoire,renderer);
+    nbjoueurtext[3] = tex_text("ChowFun.ttf",30,pseudo[3],couleurNoire,renderer);
+    nbjoueurtext[4] = tex_text("ChowFun.ttf",30,pseudo[4],couleurNoire,renderer);
+    nbjoueurtext[5] = tex_text("ChowFun.ttf",30,pseudo[5],couleurNoire,renderer);
     
     txtDestRect.x = 200;
     txtDestRect.y = 10;
@@ -125,11 +122,12 @@ int flo_test_pseudo(int reste_joueur, joueur_t tab[], int nb_bloquante, int plac
                         SDL_QueryTexture(nbjoueurtext[0], NULL, NULL, &(nbjoueurRect[0].w), &(nbjoueurRect[0].h));
                         SDL_RenderCopy(renderer, nbjoueurtext[0], NULL, &(nbjoueurRect[0]));
                         for(i=1;i<7;i++){
-                            if(x<(nbjoueurRect[i-1].x + 130) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 150) && nbjoueurRect[i-1].y<y){
+                            if(x<(nbjoueurRect[i-1].x + 130) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 40) && nbjoueurRect[i-1].y<y){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
                                     SDL_DestroyWindow(pWindow);
-                                    tab[place_joueur]->pseudo=pseudo[i];
-                                    tab[place_joueur]->nb_bloq=nb_bloquante;
+                                    flo_suivant(pseudo[i-1]);
+                                    tab[place_joueur].pseudo=pseudo[i-1];
+                                    tab[place_joueur].nb_bloq=nb_bloquante;
                                     flo_test_couleur(reste_joueur,tab,nb_bloquante,place_joueur);
                                     return 0;
                                 }

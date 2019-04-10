@@ -1,6 +1,10 @@
 #include "SDL_jeu.h"
 
-int flo_test_couleur(int reste_joueur, joueur_t tab[], int nb_bloquante, place_joueur){
+void flo_suivant2(char * coul){
+    printf("%s \n\n", coul);
+}
+
+int flo_test_couleur(int reste_joueur, joueur_t tab[], int nb_bloquante, int place_joueur){
     printf("Il reste %d joueur \n", reste_joueur);
     /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
@@ -46,16 +50,16 @@ int flo_test_couleur(int reste_joueur, joueur_t tab[], int nb_bloquante, place_j
     SDL_Texture *texte_tex = tex_text("ChowFun.ttf",80,"Puissance 4",couleurBlanc,renderer);
     SDL_Texture *texteMenu_tex[2], *nbjoueurtext[6];
 
-    char * couleur[6] = {"Vert","Rouge","Bleu","Violet","Gris","Jaune"};
+    char * couleur[6] = {"Vert","Rouge","Bleu","Orange","Gris","Jaune"};
     
     texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Choix du couleur de joueur : ",couleurNoire,renderer);
     texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurBlanc,renderer);
-    nbjoueurtext[0] = tex_text("ChowFun.ttf",40,couleur[0],couleurNoire,renderer);
-    nbjoueurtext[1] = tex_text("ChowFun.ttf",40,couleur[1],couleurNoire,renderer);
-    nbjoueurtext[2] = tex_text("ChowFun.ttf",40,couleur[2],couleurNoire,renderer);
-    nbjoueurtext[3] = tex_text("ChowFun.ttf",40,couleur[3],couleurNoire,renderer);
-    nbjoueurtext[4] = tex_text("ChowFun.ttf",40,couleur[4],couleurNoire,renderer);
-    nbjoueurtext[5] = tex_text("ChowFun.ttf",40,couleur[5],couleurNoire,renderer);
+    nbjoueurtext[0] = tex_text("ChowFun.ttf",30,couleur[0],couleurNoire,renderer);
+    nbjoueurtext[1] = tex_text("ChowFun.ttf",30,couleur[1],couleurNoire,renderer);
+    nbjoueurtext[2] = tex_text("ChowFun.ttf",30,couleur[2],couleurNoire,renderer);
+    nbjoueurtext[3] = tex_text("ChowFun.ttf",30,couleur[3],couleurNoire,renderer);
+    nbjoueurtext[4] = tex_text("ChowFun.ttf",30,couleur[4],couleurNoire,renderer);
+    nbjoueurtext[5] = tex_text("ChowFun.ttf",30,couleur[5],couleurNoire,renderer);
     
     txtDestRect.x = 200;
     txtDestRect.y = 10;
@@ -117,13 +121,14 @@ int flo_test_couleur(int reste_joueur, joueur_t tab[], int nb_bloquante, place_j
                         SDL_QueryTexture(nbjoueurtext[0], NULL, NULL, &(nbjoueurRect[0].w), &(nbjoueurRect[0].h));
                         SDL_RenderCopy(renderer, nbjoueurtext[0], NULL, &(nbjoueurRect[0]));
                         for(i=1;i<7;i++){
-                            if(x<(nbjoueurRect[i-1].x + 120) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 150) && nbjoueurRect[i-1].y<y){
+                            if(x<(nbjoueurRect[i-1].x + 120) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 30) && nbjoueurRect[i-1].y<y){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
                                     SDL_DestroyWindow(pWindow);
+                                    tab[place_joueur].couleur=couleur[i-1][0];
                                     if(reste_joueur==0){
                                         return 0;
                                     }
-                                    tab[place_joueur]->couleur=couleur[i];
+                                    flo_suivant2(couleur[i-1]);
                                     flo_test_pseudo(--reste_joueur,tab,nb_bloquante,++place_joueur);
                                     return 0;
                                 }

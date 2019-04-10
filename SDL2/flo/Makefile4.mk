@@ -32,3 +32,4 @@ fonc_texture.o : fonc_texture.c SDL_jeu.h
 
 clean :
 	rm  *.o
+	rm flo_SDL

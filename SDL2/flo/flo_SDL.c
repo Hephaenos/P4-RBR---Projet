@@ -116,9 +116,16 @@ int main(void){
                                     SDL_DestroyWindow(pWindow);
                                     if(i==0){
                                         nb_joueur = choix_nbJoueur();
-                                        joueur_t tab[nb_joueur];
-                                        nb_bloquante = choix_nbBloq();
-                                        flo_test_pseudo(nb_joueur,tab,nb_bloquante,0);
+                                        fprintf(stderr,"nb_joueur = %d \n", nb_joueur);
+                                        joueur_t * tab = malloc(sizeof(joueur_t)*nb_joueur);
+                                        fprintf(stderr,"nb_joueur2 = %d \n", nb_joueur);
+                                        do{
+                                            nb_bloquante = choix_nbBloq();
+                                        }while(nb_bloquante>42);
+                                        flo_test_pseudo(--nb_joueur,tab,nb_bloquante,0);
+                                        for(int test = 0;test<=nb_joueur;test++){
+                                            fprintf(stderr,"joueur %d pseudo = %s, couleur = %c, nbBloq = %d \n",test,tab[test].pseudo,tab[test].couleur,tab[test].nb_bloq);
+                                        }
                                     }
                                     
 

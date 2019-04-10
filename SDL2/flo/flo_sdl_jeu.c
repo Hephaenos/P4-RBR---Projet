@@ -124,7 +124,8 @@ int choix_nbJoueur(void){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
                                     SDL_DestroyWindow(pWindow);
                                     lancement_jeu2(i+1);
-                                    return(i+1);
+                                    i++;
+                                    return i;
                                 }
                             }
                             nbjoueurRect[i].x = nbjoueurRect[i-1].x + 150;
