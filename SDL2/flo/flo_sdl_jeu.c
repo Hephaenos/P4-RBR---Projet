@@ -1,70 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <string.h>
-#include <time.h>
-
-SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer){
-
-    SDL_RWops *rwop=SDL_RWFromFile(s, "rb");
-	SDL_Surface *image=IMG_LoadPNG_RW(rwop);
-	if(!image) {
-	     printf("IMG_LoadPNG_RW: %s\n", IMG_GetError());
-	}
-	SDL_Texture *image_btn_tex = SDL_CreateTextureFromSurface(renderer, image); 
-	if(!image_btn_tex){
-		fprintf(stderr, "Erreur à la création du rendu de l'image : %s\n", SDL_GetError());
-		exit(EXIT_FAILURE);
-	}
-	SDL_FreeSurface(image); /* on a la texture, plus besoin de l'image */
-    return image_btn_tex;
-}
-
-/**
- * \fn SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer)
- * \brief Transforme du texte en format texture pour pouvoir l'afficher dans la fenêtre SDL
- * \param font : chemin d'accès vers la police d'écriture.
- * \param size : taille de la police
- * \param s : texte
- * \param color : couleur pour le texte
- * \param renderer : le renderer de la fenêtre.
- * \return Pointeur sur SDL_Texture
- */
-SDL_Texture *tex_text(char* font,int size, char* s, SDL_Color color, SDL_Renderer* renderer){
-    TTF_Font *policeTitre = NULL;
-	if( (policeTitre = TTF_OpenFont(font, size)) == NULL){
-        fprintf(stderr, "erreur chargement font : %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-    SDL_Surface *texte = TTF_RenderUTF8_Blended(policeTitre, s, color);
-    if(!texte){
-        fprintf(stderr, "Erreur à la création du texte : %s\n", SDL_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_Texture *texte_tex = SDL_CreateTextureFromSurface(renderer, texte);
-    if(!texte_tex){
-        fprintf(stderr, "Erreur à la création du rendu du texte : %s\n", SDL_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    SDL_FreeSurface(texte); /* on a la texture, plus besoin du texte */
-    TTF_CloseFont(policeTitre); /* Doit être avant TTF_Quit() */
-    return texte_tex;
-}
+#include "SDL_jeu.h"
 
 
 
 
-void lancement_jeu(int i){
+void lancement_jeu2(int i){
     printf("nombre recu i = %d \n \n", i);
 }
 
-int main(void){
+int choix_nbJoueur(void){
     /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
@@ -81,7 +24,7 @@ int main(void){
     SDL_Window* pWindow = NULL;
     //Le pointeur vers la surface incluse dans la fenetre
     SDL_Renderer *renderer=NULL;
-    SDL_Rect txtDestRect, txtBvnRect, txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbjoueurRect[5];
+    SDL_Rect txtDestRect,txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbjoueurRect[5];
 
 
     // Une variable de couleur noire
@@ -180,8 +123,8 @@ int main(void){
                             if(x<(nbjoueurRect[i-1].x + 60) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 150) && nbjoueurRect[i-1].y<y){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
                                     SDL_DestroyWindow(pWindow);
-                                    lancement_jeu(i+1);
-                                    return 0;
+                                    lancement_jeu2(i+1);
+                                    return(i+1);
                                 }
                             }
                             nbjoueurRect[i].x = nbjoueurRect[i-1].x + 150;

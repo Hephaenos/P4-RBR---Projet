@@ -1,12 +1,15 @@
 #include "SDL_jeu.h"
 
 
-void lancement_jeu3(int i){
-    printf("nombre recu i = %d \n \n", i);
-    
+void flo_suivant(int nb_joueur){
+    if(nb_joueur>2 && nb_joueur<7){
+        printf("oui chamion");
+    }
+    return;
 }
 
-int choix_nbBloq(void){
+
+int flo_test_pseudo(int reste_joueur, joueur_t tab[], int nb_bloquante, int place_joueur){
     /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
@@ -23,7 +26,7 @@ int choix_nbBloq(void){
     SDL_Window* pWindow = NULL;
     //Le pointeur vers la surface incluse dans la fenetre
     SDL_Renderer *renderer=NULL;
-    SDL_Rect txtDestRect,txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbPieceBloRect[11];
+    SDL_Rect txtDestRect,txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbjoueurRect[6];
 
 
     // Une variable de couleur noire
@@ -49,21 +52,18 @@ int choix_nbBloq(void){
     }
 
     SDL_Texture *texte_tex = tex_text("ChowFun.ttf",80,"Puissance 4",couleurBlanc,renderer);
-    SDL_Texture *texteMenu_tex[2], *nbPieceBlotext[11];
+    SDL_Texture *texteMenu_tex[2], *nbjoueurtext[6];
+
+    char * pseudo[6] = {"Alpha","Delta","Beta","Omega","Epsilon","Champion"};
     
-    texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Choix de pièce(s) bloquante(s) : ",couleurNoire,renderer);
+    texteMenu_tex[0] = tex_text("ChowFun.ttf",20,"Choix du Pseudo de joueur : ",couleurNoire,renderer);
     texteMenu_tex[1] = tex_text("ChowFun.ttf",20,"Quitter",couleurBlanc,renderer);
-    nbPieceBlotext[0] = tex_text("ChowFun.ttf",40," 0 ",couleurNoire,renderer);
-    nbPieceBlotext[1] = tex_text("ChowFun.ttf",40," 1 ",couleurNoire,renderer);
-    nbPieceBlotext[2] = tex_text("ChowFun.ttf",40," 2 ",couleurNoire,renderer);
-    nbPieceBlotext[3] = tex_text("ChowFun.ttf",40," 3 ",couleurNoire,renderer);
-    nbPieceBlotext[4] = tex_text("ChowFun.ttf",40," 4 ",couleurNoire,renderer);
-    nbPieceBlotext[5] = tex_text("ChowFun.ttf",40," 5 ",couleurNoire,renderer);
-    nbPieceBlotext[6] = tex_text("ChowFun.ttf",40," 6 ",couleurNoire,renderer);
-    nbPieceBlotext[7] = tex_text("ChowFun.ttf",40," 7 ",couleurNoire,renderer);
-    nbPieceBlotext[8] = tex_text("ChowFun.ttf",40," 8 ",couleurNoire,renderer);
-    nbPieceBlotext[9] = tex_text("ChowFun.ttf",40," 9 ",couleurNoire,renderer);
-    nbPieceBlotext[10] = tex_text("ChowFun.ttf",40,"Val",couleurNoire,renderer);
+    nbjoueurtext[0] = tex_text("ChowFun.ttf",40,pseudo[0],couleurNoire,renderer);
+    nbjoueurtext[1] = tex_text("ChowFun.ttf",40,pseudo[1],couleurNoire,renderer);
+    nbjoueurtext[2] = tex_text("ChowFun.ttf",40,pseudo[2],couleurNoire,renderer);
+    nbjoueurtext[3] = tex_text("ChowFun.ttf",40,pseudo[3],couleurNoire,renderer);
+    nbjoueurtext[4] = tex_text("ChowFun.ttf",40,pseudo[4],couleurNoire,renderer);
+    nbjoueurtext[5] = tex_text("ChowFun.ttf",40,pseudo[5],couleurNoire,renderer);
     
     txtDestRect.x = 200;
     txtDestRect.y = 10;
@@ -75,7 +75,7 @@ int choix_nbBloq(void){
 
     if( pWindow )
     {
-        int running = 1, i, val = -1;
+        int running = 1, i;
         while(running) {
             SDL_Event e;
             SDL_GetMouseState(&x,&y);
@@ -116,38 +116,33 @@ int choix_nbBloq(void){
                         if(x<700 && 590<x && y<imgBtnRect.y+55 && imgBtnRect.y<y){
                             if(e.type == SDL_MOUSEBUTTONDOWN){
                                 SDL_DestroyWindow(pWindow);
-                                lancement_jeu(0);
+                                flo_suivant(0);
                                 return 0;
                             }
                         }
-                        nbPieceBloRect[0].x=180;
-                        nbPieceBloRect[0].y=260;
-                        SDL_QueryTexture(nbPieceBlotext[0], NULL, NULL, &(nbPieceBloRect[0].w), &(nbPieceBloRect[0].h));
-                        SDL_RenderCopy(renderer, nbPieceBlotext[0], NULL, &(nbPieceBloRect[0]));
-                        for(i=1;i<12;i++){
-                            if(x<(nbPieceBloRect[i-1].x + 40) && (nbPieceBloRect[i-1].x)<x && y<(nbPieceBloRect[i-1].y + 40) && nbPieceBloRect[i-1].y<y){
+                        nbjoueurRect[0].x=40;
+                        nbjoueurRect[0].y=260;
+                        SDL_QueryTexture(nbjoueurtext[0], NULL, NULL, &(nbjoueurRect[0].w), &(nbjoueurRect[0].h));
+                        SDL_RenderCopy(renderer, nbjoueurtext[0], NULL, &(nbjoueurRect[0]));
+                        for(i=1;i<7;i++){
+                            if(x<(nbjoueurRect[i-1].x + 130) && (nbjoueurRect[i-1].x)<x && y<(nbjoueurRect[i-1].y + 150) && nbjoueurRect[i-1].y<y){
                                 if(e.type == SDL_MOUSEBUTTONDOWN){
-                                    if(val != -1 && (i-1)!= 10){
-                                        val = val * 10 + (i-1);
-                                    }
-                                    else if(val == -1 && (i-1)!= 10) {
-                                        val = (i-1);
-                                    }
-                                    else if((i-1) == 10){
-                                        SDL_DestroyWindow(pWindow);
-                                        lancement_jeu3(val);
-                                    }
+                                    SDL_DestroyWindow(pWindow);
+                                    tab[place_joueur]->pseudo=pseudo[i];
+                                    tab[place_joueur]->nb_bloq=nb_bloquante;
+                                    flo_test_couleur(reste_joueur,tab,nb_bloquante,place_joueur);
+                                    return 0;
                                 }
                             }
-                            if(i>5){
-                                nbPieceBloRect[i].y= nbPieceBloRect[0].y+100;
+                            nbjoueurRect[i].x = nbjoueurRect[0].x + (i%3)*160;
+                            if(i>2){
+                                nbjoueurRect[i].y= 360;
                             }
                             else{
-                                nbPieceBloRect[i].y= nbPieceBloRect[0].y;
+                                nbjoueurRect[i].y= 260;
                             }
-                            nbPieceBloRect[i].x = nbPieceBloRect[0].x + (i%6)*70;
-                            SDL_QueryTexture(nbPieceBlotext[i], NULL, NULL, &(nbPieceBloRect[i].w), &(nbPieceBloRect[i].h));
-                            SDL_RenderCopy(renderer, nbPieceBlotext[i], NULL, &(nbPieceBloRect[i]));
+                            SDL_QueryTexture(nbjoueurtext[i], NULL, NULL, &(nbjoueurRect[i].w), &(nbjoueurRect[i].h));
+                            SDL_RenderCopy(renderer, nbjoueurtext[i], NULL, &(nbjoueurRect[i]));
                         }
                         txt_titre.x = 170;
                         txt_titre.y = 10;
