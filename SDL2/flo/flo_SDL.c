@@ -1,6 +1,6 @@
 /**
-/*file SDL.c
-/*brief Fichier affichant le menu en SDL ou les joueurs doivent choisir de jouer une partie ou de quitter
+\file SDL.c
+\brief Fichier affichant le menu en SDL ou les joueurs doivent choisir de jouer une partie ou de quitter
 **/
 
 
@@ -22,8 +22,14 @@ int lancement_jeu(int i){
 
 int main(void){
     case_t mat[L][C];
+<<<<<<< HEAD
+    initialiser_matrice(mat);
+    int nb_joueur,nb_bloquante,joueur;
+    /* Initialisation simple */
+=======
     int nb_joueur,nb_bloquante,joueur, nb_jeton = 42;
     /** Initialisation simple **/
+>>>>>>> a6c877974f92cd442e32e9426c009d31f7ddc6eb
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         return -1;
@@ -125,12 +131,31 @@ int main(void){
                                             nb_bloquante = choix_nbBloq();
                                         }while(nb_bloquante>42);
                                         flo_test_pseudo(--nb_joueur,tab,nb_bloquante,0);
+                                        //On vérifie que les informations sont bien enregistrés
                                         for(int test = 0;test<=nb_joueur;test++){
                                             fprintf(stderr,"joueur %d pseudo = %s, couleur = %c, nbBloq = %d \n",test,tab[test].pseudo,tab[test].couleur,tab[test].nb_bloq);
                                         }
-                                    }
-                                    
+                                        for(joueur = 0 ;!mat_remplie(mat); joueur++, ){             
+                                            joueur=joueur%nb_joueur;
+                                            printf("C'est à %s de joueur !", tab[joueur].pseudo);
+                                            tour_joueur(&tab[joueur],mat);
+                                            if((gagne(&tab[(joueur%nb_joueur)],mat)))
+                                                break;          
+                                        }
+                                        if(mat_remplie(mat)){
+                                            printf("Match nul ! \n");
+                                        }
+                                        else{
+                                            printf("C'est %s qui a gagné ! \n", tab[joueur].pseudo);
+                                        }
+                                        for(i=0;i<L;i++){
+                                            for(j=0;j<C;j++){
+                                                free(mat[i][j].piece1);
+                                                free(mat[i][j].piece2);
+                                            }
+                                        }
 
+                                    }
                                     return 0;
                                 }
                             }
@@ -160,4 +185,3 @@ int main(void){
     return 0;
 
 }
-

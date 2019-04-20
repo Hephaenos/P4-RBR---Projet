@@ -1,6 +1,6 @@
 /**
-*\file nb_bloq.c
-*\brief Fichier permettant de choisir avec l'interface graphique, le nombre de pièces bloquantes dont chaque joueurs pourra disposer
+\file nb_bloq.c
+\brief Fichier permettant de choisir avec l'interface graphique, le nombre de pièces bloquantes dont chaque joueurs pourra disposer
 **/
 
 #include "SDL_jeu.h"

@@ -1,6 +1,6 @@
 /**
-/*file sdl_couleur.c
-/*brief Fichier permettant aux joueurs de choisir leur couleur de pièce pour la partie
+\file sdl_couleur.c
+\brief Fichier permettant aux joueurs de choisir leur couleur de pièce pour la partie
 **/
 
 #include "SDL_jeu.h"
