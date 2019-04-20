@@ -1,3 +1,8 @@
+/**
+* \file P4.c
+* \brief Notre main
+*/
+
 #include <stdio.h>
 #include<stdlib.h>
 #include"../Include/P4.h"
@@ -11,7 +16,7 @@
 
 
 
-int main(){ //initialisation des entier, cahine de caractÃ¨res et fichier
+int main(){ /* initialisation des entier, cahine de caractÃ¨res et fichier */
         case_t mat[L][C];
         int nb_joueur,joueur, nb_jeton = 42,i,j;
         initialiser_matrice(mat);
@@ -24,7 +29,7 @@ int main(){ //initialisation des entier, cahine de caractÃ¨res et fichier
         afficher_matrice(mat);
 
 
-        //on fait chaque tour de jeu tant qu'il a les pions
+        /* on fait chaque tour de jeu tant qu'il a les pions */
                 for(joueur = 0 ;nb_jeton>0; joueur++, nb_jeton--){
                         joueur=joueur%nb_joueur;
                         printf("C'est à %s de joueur !", tab[joueur].pseudo);
@@ -33,7 +38,7 @@ int main(){ //initialisation des entier, cahine de caractÃ¨res et fichier
                                 break;          
                 }
                 nb_jeton-=nb_joueur;
-         //tous les pions sont dÃ©pensÃ©s donc match nul
+         /* tous les pions sont dÃ©pensÃ©s donc match nul */
         if(nb_jeton == 0){
                 printf("Match nul ! \n");
         }

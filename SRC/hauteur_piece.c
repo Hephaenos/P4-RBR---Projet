@@ -1,3 +1,8 @@
+/**
+* \file hauteur_piece.c
+* \brief Fonction qui permet de voir si la colonne est remplie ou non
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,7 +15,13 @@
 #define PLEINE 2
 #define CREUSE 3
 
- // Permet de savoir à quelle hauteur arrive la pièce dans la colonne choisit
+/**
+* \fn int hauteur_piece(int j, case_t mat[L][C], int type_piece)
+* \brief  Permet de savoir à quelle hauteur arrive la pièce dans la colonne choisit
+* \param mat[L][C] : la matrice où l'on fait les vérifications
+* \param type_piece : le type de la pièce à mettre dans la matrice
+*/
+
 int hauteur_piece(int j, case_t mat[L][C], int type_piece){
         int i=L-1;
         if(type_piece==BLOQUANTE){

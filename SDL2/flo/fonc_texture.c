@@ -1,7 +1,7 @@
 /**
-\file fonc_texture.c
-\brief Ficher contenant toute les fonctions gérant les textures
-**/
+* \file fonc_texture.c
+* \brief Ficher contenant toute les fonctions gérant les textures
+*/
 
 #include "SDL_jeu.h"
 
@@ -17,20 +17,20 @@ SDL_Texture* tex_img_png(char * s, SDL_Renderer* renderer){
 		fprintf(stderr, "Erreur à la création du rendu de l'image : %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
 	}
-	SDL_FreeSurface(image); /** on a la texture, plus besoin de l'image **/
+	SDL_FreeSurface(image); /* on a la texture, plus besoin de l'image */
     return image_btn_tex;
 }
 
 /**
-\fn SDL_Texture * tex_img_png(char * s, SDL_Renderer * renderer)
-\brief Transforme du texte en format texture pour pouvoir l'afficher dans la fenêtre SDL
-\param font : accès vers la police d'écriture.
-\param size : taille de la police
-\param s : texte
-\param color : la couleur pour le texte
-\param renderer : le rendu de la fenêtre.
-\return Pointeur sur SDL_Texture
-**/
+* \fn SDL_Texture * tex_img_png(char * s, SDL_Renderer * renderer)
+* \brief Transforme du texte en format texture pour pouvoir l'afficher dans la fenêtre SDL
+* \param font : accès vers la police d'écriture.
+* \param size : taille de la police
+* \param s : texte
+* \param color : la couleur pour le texte
+* \param renderer : le rendu de la fenêtre.
+* \return Pointeur sur SDL_Texture
+*/
 SDL_Texture *tex_text(char* font,int size, char* s, SDL_Color color, SDL_Renderer* renderer){
     TTF_Font *policeTitre = NULL;
 	if( (policeTitre = TTF_OpenFont(font, size)) == NULL){
@@ -50,8 +50,8 @@ SDL_Texture *tex_text(char* font,int size, char* s, SDL_Color color, SDL_Rendere
         exit(EXIT_FAILURE);
     }
 
-    SDL_FreeSurface(texte); /** on a la texture, plus besoin du texte **/
-    TTF_CloseFont(policeTitre); /** Doit être avant TTF_Quit() **/
+    SDL_FreeSurface(texte); /* on a la texture, plus besoin du texte */
+    TTF_CloseFont(policeTitre); /* Doit être avant TTF_Quit() */
     return texte_tex;
 }
 

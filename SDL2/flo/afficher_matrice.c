@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include"../Include/P4.h"
+#include "SDL_jeu.h"
 
 
 // Fonction qui affiche une matrice

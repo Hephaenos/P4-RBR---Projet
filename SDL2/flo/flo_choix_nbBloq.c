@@ -1,7 +1,7 @@
 /**
-\file nb_bloq.c
-\brief Fichier permettant de choisir avec l'interface graphique, le nombre de pièces bloquantes dont chaque joueurs pourra disposer
-**/
+* \file nb_bloq.c
+* \brief Fichier permettant de choisir avec l'interface graphique, le nombre de pièces bloquantes dont chaque joueurs pourra disposer
+*/
 
 #include "SDL_jeu.h"
 
@@ -10,31 +10,31 @@ void lancement_jeu3(int i){
     printf("nombre recu i = %d \n \n", i);
 }
 
+
 int choix_nbBloq(void){
-    /** Initialisation simple **/
+    /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
-        fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
-        return -1;
+        fprintf(stdout,"Échec de l'ini* 
     } 
 
-	/** Initialisation TTF **/
+	/* Initialisation TTF */
 	if(TTF_Init() == -1) {
 		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
 		exit(EXIT_FAILURE);
 	}
     int x,y;
-    /** Le pointeur vers la fenetre **/
+    /* Le pointeur vers la fenetre */
     SDL_Window* pWindow = NULL;
-    /** Le pointeur vers la surface incluse dans la fenetre **/
+    /* Le pointeur vers la surface incluse dans la fenetre */
     SDL_Renderer *renderer=NULL;
     SDL_Rect txtDestRect,txtMenuRect[4], imgBtnRect, imgBGRect, txt_titre, nbPieceBloRect[11];
 
 
-    /** Une variable de couleur noire **/
+    /* Une variable de couleur noire */
     SDL_Color couleurNoire = {0, 0, 0, 0};
     SDL_Color couleurBlanc = {255, 255, 255, 255};
 
-    /** Création de la fenêtre **/
+    /* Création de la fenêtre */
     pWindow = SDL_CreateWindow("Puissance 4++",SDL_WINDOWPOS_UNDEFINED,
                                SDL_WINDOWPOS_UNDEFINED,
                                800,
@@ -74,7 +74,7 @@ int choix_nbBloq(void){
     SDL_QueryTexture(texte_tex, NULL, NULL, &(txtDestRect.w), &(txtDestRect.h));
 
     SDL_Texture *image_BG_tex = tex_img_png("Puissance4BG.png",renderer);
-    /** Chargement de l'image bouton **/
+    /* Chargement de l'image bouton */
     SDL_Texture *image_btn_tex = tex_img_png("button2.png",renderer);
 
     if( pWindow )
@@ -91,10 +91,10 @@ int choix_nbBloq(void){
                     case SDL_MOUSEBUTTONDOWN:
                         
                     case SDL_WINDOWEVENT:
-                        /** Le fond de la fenêtre sera blanc **/
+                        /* Le fond de la fenêtre sera blanc */
                         SDL_RenderClear(renderer);
                         
-                        /** BACKGROUND **/
+                        /* BACKGROUND */
                         imgBGRect.x = 0;
                         imgBGRect.y = 0;
                         
@@ -102,10 +102,10 @@ int choix_nbBloq(void){
 
                         SDL_RenderCopy(renderer, image_BG_tex, NULL, &imgBGRect);
                         
-                        /** Ajout du texte en noir **/
+                        /* Ajout du texte en noir */
                         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
                         
-                        /** Positionnement du premier bouton **/
+                        /* Positionnement du premier bouton */
                         imgBtnRect.x = 590;
                         imgBtnRect.y = 430;
                         txtMenuRect[0].x=258;
@@ -162,7 +162,7 @@ int choix_nbBloq(void){
                         SDL_RenderCopy(renderer, texteMenu_tex[1], NULL, &(txtMenuRect[1]));
 
 
-                        /** On fait le rendu ! **/
+                        /* On fait le rendu */
                     SDL_RenderPresent(renderer);
                     break;
                 }
@@ -171,7 +171,7 @@ int choix_nbBloq(void){
     } else {
         fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
     }
-    /** Destruction de la fenetre **/
+    /* Destruction de la fenetre */
     if(pWindow != NULL) SDL_DestroyWindow(pWindow);
     return 0;
 
