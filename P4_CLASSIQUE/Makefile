@@ -1,5 +1,5 @@
 P4 : P4.o afficher_matrice.o hauteur_piece.o initialiser_matrice.o tour_joueur.o gagne.o
-	gcc P4.o afficher_matrice.o hauteur_piece.o initialiser_matrice.o tour_joueur.o gagne.o -o P4
+	gcc -g P4.o afficher_matrice.o hauteur_piece.o initialiser_matrice.o tour_joueur.o gagne.o -o P4
 
 P4.o : P4.c
 	gcc -c P4.c
@@ -21,3 +21,4 @@ gagne.o : gagne.c
 
 clean :
 	rm  *.o
+	rm P4
