@@ -1,3 +1,9 @@
+/**
+/*file SDL.c
+/*brief Fichier affichant le menu en SDL ou les joueurs doivent choisir de jouer une partie ou de quitter
+**/
+
+
 #include "SDL_jeu.h"
 
 
@@ -16,32 +22,37 @@ int lancement_jeu(int i){
 
 int main(void){
     case_t mat[L][C];
+<<<<<<< HEAD
     initialiser_matrice(mat);
     int nb_joueur,nb_bloquante,joueur;
     /* Initialisation simple */
+=======
+    int nb_joueur,nb_bloquante,joueur, nb_jeton = 42;
+    /** Initialisation simple **/
+>>>>>>> a6c877974f92cd442e32e9426c009d31f7ddc6eb
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         return -1;
     } 
 
-	/* Initialisation TTF */
+	/** Initialisation TTF **/
 	if(TTF_Init() == -1) {
 		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
 		exit(EXIT_FAILURE);
 	}
     int x,y;
-    //Le pointeur vers la fenetre
+    /** Le pointeur vers la fenetre **/
     SDL_Window* pWindow = NULL;
-    //Le pointeur vers la surface incluse dans la fenetre
+    /** Le pointeur vers la surface incluse dans la fenetre **/
     SDL_Renderer *renderer=NULL;
     SDL_Rect txtDestRect, txtMenuRect[2], imgBtnRect, imgBGRect, txt_titre;
 
 
-    // Une variable de couleur noire
+    /** Une variable de couleur noire **/
     SDL_Color couleurNoire = {0, 0, 0, 0};
     SDL_Color couleurBlanc = {255, 255, 255, 255};
 
-    /* Création de la fenêtre */
+    /** Création de la fenêtre **/
     pWindow = SDL_CreateWindow("Puissance 4++",SDL_WINDOWPOS_UNDEFINED,
                                SDL_WINDOWPOS_UNDEFINED,
                                800,
@@ -70,7 +81,7 @@ int main(void){
     SDL_QueryTexture(texte_tex, NULL, NULL, &(txtDestRect.w), &(txtDestRect.h));
 
     SDL_Texture *image_BG_tex = tex_img_png("Puissance4BG.png",renderer);
-    //Chargement de l'image bouton
+    /** Chargement de l'image bouton **/
     SDL_Texture *image_btn_tex = tex_img_png("button2.png",renderer);
 
     if( pWindow )
@@ -85,11 +96,10 @@ int main(void){
                     case SDL_MOUSEBUTTONDOWN:
                         
                     case SDL_WINDOWEVENT:
-                        /* Le fond de la fenêtre sera blanc */
-                        //SDL_SetRenderDrawColor(renderer, 24, 124, 58, 255);
+                        /** SDL_SetRenderDrawColor(renderer, 24, 124, 58, 255); **/
                         SDL_RenderClear(renderer);
                         
-                        //BACKGROUND
+                        /** BACKGROUND **/
                         imgBGRect.x = 0;
                         imgBGRect.y = 0;
                         
@@ -97,13 +107,10 @@ int main(void){
 
                         SDL_RenderCopy(renderer, image_BG_tex, NULL, &imgBGRect);
                         
-                        /* Ajout du texte en noir */
+                        /** Ajout du texte en noir **/
                         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
                         
-                        
-                        //SDL_RenderDrawLine(renderer,0,130,1080,130);
-                        
-                        //Positionnement du premier bouton
+                        /** Positionnement du premier bouton **/
                         imgBtnRect.x = 350;
                         imgBtnRect.y = 200;
                         txtMenuRect[0].x=378;
@@ -163,20 +170,7 @@ int main(void){
                             SDL_RenderCopy(renderer, texteMenu_tex[i], NULL, &(txtMenuRect[i]));
                             imgBtnRect.y += 90;
                         }
-                        /*
-                        imgBtnRect.x = 1000;
-                        imgBtnRect.y = 570;
-                        if(song==PLAY){
-                            temp_music = image_pause_tex;
-                            Mix_ResumeMusic();
-                        }else{
-                            temp_music = image_play_tex;
-                            Mix_PauseMusic();
-                        }
-                        SDL_QueryTexture(temp_music, NULL, NULL, &(imgBtnRect.w), &(imgBtnRect.h));
-                        SDL_RenderCopy(renderer, temp_music, NULL, &imgBtnRect);*/
-
-                        /* On fait le rendu ! */
+                        /** On fait le rendu ! **/
                         SDL_RenderPresent(renderer);
                         break;
                 }
@@ -186,7 +180,7 @@ int main(void){
         fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
     }
     
-    //Destruction de la fenetre
+    /** Destruction de la fenetre **/
     if(pWindow != NULL) SDL_DestroyWindow(pWindow);
     return 0;
 
