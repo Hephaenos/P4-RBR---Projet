@@ -47,7 +47,7 @@ int partie_termineeSDL(void);
 char afficher_gagnant(void);
 
 
-//JEU : INTERFACE GRAPHIQUE
+//menu: INTERFACE GRAPHIQUE
 int lancement_jeu(int modeJeu);
 void lancement_jeu2(int i);
 void lancement_jeu3(int i);
@@ -57,4 +57,13 @@ int choix_nbBloq(void);
 int flo_test_pseudo(int reste_joueur, joueur_t tab[], int nb_bloquante, int place_joueur);
 int flo_test_couleur(int reste_joueur, joueur_t tab[], int nb_bloquante, int place_joueur);
 
-
+// Jeu terminal
+void afficher_matrice(case_t mat[L][C]);
+int gagne(joueur_t * joueur, case_t mat[L][C]);
+int hauteur_piece(int y, case_t mat[L][C], int type_piece);
+void initialiser_matrice(case_t mat[L][C]);
+void joue_bloquante(joueur_t * joueur, case_t mat[L][C]);
+void joue_pleine(joueur_t * joueur, case_t mat[L][C]);
+void joue_creuse(joueur_t * joueur, case_t mat[L][C]);
+void tour_joueur(joueur_t * joueur, case_t mat[L][C]);
+int mat_remplie(case_t mat[L][C]);
