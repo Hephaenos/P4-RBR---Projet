@@ -125,7 +125,6 @@ int main(void){
                                         nb_joueur = choix_nbJoueur();
                                         fprintf(stderr,"nb_joueur = %d \n", nb_joueur);
                                         joueur_t * tab = malloc(sizeof(joueur_t)*nb_joueur);
-                                        fprintf(stderr,"nb_joueur2 = %d \n", nb_joueur);
                                         do{
                                             nb_bloquante = choix_nbBloq();
                                         }while(nb_bloquante>42);
@@ -135,10 +134,10 @@ int main(void){
                                             fprintf(stderr,"joueur %d pseudo = %s, couleur = %c, nbBloq = %d \n",test,tab[test].pseudo,tab[test].couleur,tab[test].nb_bloq);
                                         }
                                         for(joueur = 0 ;!(mat_remplie(mat)); joueur++){             
-                                            joueur=joueur%nb_joueur;
+                                            joueur= joueur%(nb_joueur+1);
                                             printf("C'est à %s de joueur !", tab[joueur].pseudo);
                                             tour_joueur(&tab[joueur],mat);
-                                            if((gagne(&tab[(joueur%nb_joueur)],mat)))
+                                            if((gagne(&tab[joueur],mat)))
                                                 break;          
                                         }
                                         if(mat_remplie(mat)){
