@@ -21,3 +21,4 @@ gagne.o : SRC/gagne.c
 
 clean :
 	rm  *.o
+	rm P4
