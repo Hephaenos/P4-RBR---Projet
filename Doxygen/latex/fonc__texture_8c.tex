@@ -1,0 +1,71 @@
+\hypertarget{fonc__texture_8c}{}\section{fonc\+\_\+texture.\+c File Reference}
+\label{fonc__texture_8c}\index{fonc\+\_\+texture.\+c@{fonc\+\_\+texture.\+c}}
+
+
+Ficher contenant toute les fonctions gérant les textures.  
+
+
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+jeu.\+h\char`\"{}}\newline
+Include dependency graph for fonc\+\_\+texture.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{fonc__texture_8c_a2ae28f5a6139ce0b82c3b93ed8f012e0}{tex\+\_\+img\+\_\+png} (char $\ast$s, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Transforme du image en format texture pour pouvoir l\textquotesingle{}afficher dans la fenêtre S\+DL. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{fonc__texture_8c_a8f1bcfdba98e9bf88ae918eb276e2f8d}{tex\+\_\+text} (char $\ast$font, int size, char $\ast$s, S\+D\+L\+\_\+\+Color color, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Transforme du texte en format texture pour pouvoir l\textquotesingle{}afficher dans la fenêtre S\+DL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ficher contenant toute les fonctions gérant les textures. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{fonc__texture_8c_a2ae28f5a6139ce0b82c3b93ed8f012e0}\label{fonc__texture_8c_a2ae28f5a6139ce0b82c3b93ed8f012e0}} 
+\index{fonc\+\_\+texture.\+c@{fonc\+\_\+texture.\+c}!tex\+\_\+img\+\_\+png@{tex\+\_\+img\+\_\+png}}
+\index{tex\+\_\+img\+\_\+png@{tex\+\_\+img\+\_\+png}!fonc\+\_\+texture.\+c@{fonc\+\_\+texture.\+c}}
+\subsubsection{\texorpdfstring{tex\+\_\+img\+\_\+png()}{tex\_img\_png()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ tex\+\_\+img\+\_\+png (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Transforme du image en format texture pour pouvoir l\textquotesingle{}afficher dans la fenêtre S\+DL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \+: nom de l\textquotesingle{}image \\
+\hline
+{\em renderer} & \+: le rendu de la fenêtre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur S\+D\+L\+\_\+\+Texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fonc__texture_8c_a8f1bcfdba98e9bf88ae918eb276e2f8d}\label{fonc__texture_8c_a8f1bcfdba98e9bf88ae918eb276e2f8d}} 
+\index{fonc\+\_\+texture.\+c@{fonc\+\_\+texture.\+c}!tex\+\_\+text@{tex\+\_\+text}}
+\index{tex\+\_\+text@{tex\+\_\+text}!fonc\+\_\+texture.\+c@{fonc\+\_\+texture.\+c}}
+\subsubsection{\texorpdfstring{tex\+\_\+text()}{tex\_text()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ tex\+\_\+text (\begin{DoxyParamCaption}\item[{char $\ast$}]{font,  }\item[{int}]{size,  }\item[{char $\ast$}]{s,  }\item[{S\+D\+L\+\_\+\+Color}]{color,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Transforme du texte en format texture pour pouvoir l\textquotesingle{}afficher dans la fenêtre S\+DL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & \+: accès vers la police d\textquotesingle{}écriture. \\
+\hline
+{\em size} & \+: taille de la police \\
+\hline
+{\em s} & \+: texte \\
+\hline
+{\em color} & \+: la couleur pour le texte \\
+\hline
+{\em renderer} & \+: le rendu de la fenêtre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur S\+D\+L\+\_\+\+Texture 
+\end{DoxyReturn}

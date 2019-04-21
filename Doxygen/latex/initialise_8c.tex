@@ -1,0 +1,63 @@
+\hypertarget{initialise_8c}{}\section{initialise.\+c File Reference}
+\label{initialise_8c}\index{initialise.\+c@{initialise.\+c}}
+
+
+Fichier où se touvent les fonctions d\textquotesingle{}initialisation des matrices, des structures joueur et pièces.  
+
+
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+jeu.\+h\char`\"{}}\newline
+Include dependency graph for initialise.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{initialise_8c_aa8d886aba197e552921f4aa0b0000e43}{initialiser\+\_\+matrice} (\hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em Remplie toute la matrice a nulle. \end{DoxyCompactList}\item 
+void \hyperlink{initialise_8c_a07ebf2255a13885ae481b77fd4083fb3}{creer\+\_\+joueur} (\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$joueur, int bloquante)
+\begin{DoxyCompactList}\small\item\em Creer un joueur avec comme choix le pseudo et la couleur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{initialise_8c_a2e94331d5f1afb7fbca583c26021ca9f}\label{initialise_8c_a2e94331d5f1afb7fbca583c26021ca9f}} 
+int \hyperlink{initialise_8c_a2e94331d5f1afb7fbca583c26021ca9f}{choix\+\_\+piece\+\_\+bloquante} (void)
+\begin{DoxyCompactList}\small\item\em Renvoi le nombre de piece bloquante pour tous les joueurs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{initialise_8c_af1e26c1bfc280cb1dfbc400725b6a560}\label{initialise_8c_af1e26c1bfc280cb1dfbc400725b6a560}} 
+void {\bfseries initialiser\+\_\+joueur} (int nb\+\_\+joueur, \hyperlink{structjoueur__s}{joueur\+\_\+t} tab\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier où se touvent les fonctions d\textquotesingle{}initialisation des matrices, des structures joueur et pièces. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{initialise_8c_a07ebf2255a13885ae481b77fd4083fb3}\label{initialise_8c_a07ebf2255a13885ae481b77fd4083fb3}} 
+\index{initialise.\+c@{initialise.\+c}!creer\+\_\+joueur@{creer\+\_\+joueur}}
+\index{creer\+\_\+joueur@{creer\+\_\+joueur}!initialise.\+c@{initialise.\+c}}
+\subsubsection{\texorpdfstring{creer\+\_\+joueur()}{creer\_joueur()}}
+{\footnotesize\ttfamily void creer\+\_\+joueur (\begin{DoxyParamCaption}\item[{\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$}]{joueur,  }\item[{int}]{bloquante }\end{DoxyParamCaption})}
+
+
+
+Creer un joueur avec comme choix le pseudo et la couleur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$} & joueurs \+: \\
+\hline
+{\em bloquante} & \+: le nombre de pièces bloquantes que l\textquotesingle{}on donnera aux joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{initialise_8c_aa8d886aba197e552921f4aa0b0000e43}\label{initialise_8c_aa8d886aba197e552921f4aa0b0000e43}} 
+\index{initialise.\+c@{initialise.\+c}!initialiser\+\_\+matrice@{initialiser\+\_\+matrice}}
+\index{initialiser\+\_\+matrice@{initialiser\+\_\+matrice}!initialise.\+c@{initialise.\+c}}
+\subsubsection{\texorpdfstring{initialiser\+\_\+matrice()}{initialiser\_matrice()}}
+{\footnotesize\ttfamily void initialiser\+\_\+matrice (\begin{DoxyParamCaption}\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Remplie toute la matrice a nulle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: la matrice où l\textquotesingle{}on fait les vérifications \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,97 @@
+\hypertarget{tour__joueur_8c}{}\section{tour\+\_\+joueur.\+c File Reference}
+\label{tour__joueur_8c}\index{tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}}
+
+
+Fichier où se touvent les fonctions permettant de savoir quel type de pièce le joueur joue, quel joueur joue et où la pièce va être positionée.  
+
+
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+jeu.\+h\char`\"{}}\newline
+Include dependency graph for tour\+\_\+joueur.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tour__joueur_8c_ac7ac342b6b39e9236a70b38eea022a01}{joue\+\_\+bloquante} (\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$joueur, \hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em Place une pièce bloquante dans la matrice. \end{DoxyCompactList}\item 
+void \hyperlink{tour__joueur_8c_a21546a6e49bbd67480da47dd21e3349c}{joue\+\_\+pleine} (\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$joueur, \hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em place une pièce pleine dans la matrice \end{DoxyCompactList}\item 
+void \hyperlink{tour__joueur_8c_ab5e4ebcb7d4ec8a1636de583a07f5ece}{joue\+\_\+creuse} (\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$joueur, \hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em Place une pièce creuse dans la matrice. \end{DoxyCompactList}\item 
+void \hyperlink{tour__joueur_8c_aadecabcf0b51d3dc144c98ea9800971e}{tour\+\_\+joueur} (\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$joueur, \hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em Permet de choisir au joueur de placer sa pièce dans la colonne choisit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier où se touvent les fonctions permettant de savoir quel type de pièce le joueur joue, quel joueur joue et où la pièce va être positionée. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tour__joueur_8c_ac7ac342b6b39e9236a70b38eea022a01}\label{tour__joueur_8c_ac7ac342b6b39e9236a70b38eea022a01}} 
+\index{tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}!joue\+\_\+bloquante@{joue\+\_\+bloquante}}
+\index{joue\+\_\+bloquante@{joue\+\_\+bloquante}!tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}}
+\subsubsection{\texorpdfstring{joue\+\_\+bloquante()}{joue\_bloquante()}}
+{\footnotesize\ttfamily void joue\+\_\+bloquante (\begin{DoxyParamCaption}\item[{\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$}]{joueur,  }\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Place une pièce bloquante dans la matrice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$} & joueurs \+: pointeur sur joueur \\
+\hline
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: matrice où le joueur met sa pièce \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tour__joueur_8c_ab5e4ebcb7d4ec8a1636de583a07f5ece}\label{tour__joueur_8c_ab5e4ebcb7d4ec8a1636de583a07f5ece}} 
+\index{tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}!joue\+\_\+creuse@{joue\+\_\+creuse}}
+\index{joue\+\_\+creuse@{joue\+\_\+creuse}!tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}}
+\subsubsection{\texorpdfstring{joue\+\_\+creuse()}{joue\_creuse()}}
+{\footnotesize\ttfamily void joue\+\_\+creuse (\begin{DoxyParamCaption}\item[{\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$}]{joueur,  }\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Place une pièce creuse dans la matrice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$} & joueurs \+: pointeur sur joueur \\
+\hline
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: matrice où le joueur met sa pièce \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tour__joueur_8c_a21546a6e49bbd67480da47dd21e3349c}\label{tour__joueur_8c_a21546a6e49bbd67480da47dd21e3349c}} 
+\index{tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}!joue\+\_\+pleine@{joue\+\_\+pleine}}
+\index{joue\+\_\+pleine@{joue\+\_\+pleine}!tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}}
+\subsubsection{\texorpdfstring{joue\+\_\+pleine()}{joue\_pleine()}}
+{\footnotesize\ttfamily void joue\+\_\+pleine (\begin{DoxyParamCaption}\item[{\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$}]{joueur,  }\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+place une pièce pleine dans la matrice 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$} & joueurs \+: pointeur sur joueur \\
+\hline
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: matrice où le joueur met sa pièce \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tour__joueur_8c_aadecabcf0b51d3dc144c98ea9800971e}\label{tour__joueur_8c_aadecabcf0b51d3dc144c98ea9800971e}} 
+\index{tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}!tour\+\_\+joueur@{tour\+\_\+joueur}}
+\index{tour\+\_\+joueur@{tour\+\_\+joueur}!tour\+\_\+joueur.\+c@{tour\+\_\+joueur.\+c}}
+\subsubsection{\texorpdfstring{tour\+\_\+joueur()}{tour\_joueur()}}
+{\footnotesize\ttfamily void tour\+\_\+joueur (\begin{DoxyParamCaption}\item[{\hyperlink{structjoueur__s}{joueur\+\_\+t} $\ast$}]{joueur,  }\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Permet de choisir au joueur de placer sa pièce dans la colonne choisit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$} & joueurs \+: pointeur sur joueur \\
+\hline
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: matrice où le joueur met sa pièce \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,38 @@
+\hypertarget{afficher__matrice_8c}{}\section{afficher\+\_\+matrice.\+c File Reference}
+\label{afficher__matrice_8c}\index{afficher\+\_\+matrice.\+c@{afficher\+\_\+matrice.\+c}}
+
+
+Fonction qui permet d\textquotesingle{}afficher une matrice.  
+
+
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+jeu.\+h\char`\"{}}\newline
+Include dependency graph for afficher\+\_\+matrice.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{afficher__matrice_8c_a72b0f4a603d3f254a7d32f3cd586e125}{afficher\+\_\+matrice} (\hyperlink{structcase__s}{case\+\_\+t} mat\mbox{[}L\mbox{]}\mbox{[}C\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la matrice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonction qui permet d\textquotesingle{}afficher une matrice. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{afficher__matrice_8c_a72b0f4a603d3f254a7d32f3cd586e125}\label{afficher__matrice_8c_a72b0f4a603d3f254a7d32f3cd586e125}} 
+\index{afficher\+\_\+matrice.\+c@{afficher\+\_\+matrice.\+c}!afficher\+\_\+matrice@{afficher\+\_\+matrice}}
+\index{afficher\+\_\+matrice@{afficher\+\_\+matrice}!afficher\+\_\+matrice.\+c@{afficher\+\_\+matrice.\+c}}
+\subsubsection{\texorpdfstring{afficher\+\_\+matrice()}{afficher\_matrice()}}
+{\footnotesize\ttfamily void afficher\+\_\+matrice (\begin{DoxyParamCaption}\item[{\hyperlink{structcase__s}{case\+\_\+t}}]{mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\mbox{[}\+L\mbox{]}\mbox{[}\+C\mbox{]}} & \+: la matrice à afficher \\
+\hline
+\end{DoxyParams}
